@@ -1,0 +1,11 @@
+<div *ngIf="propietario">
+  <h2>{{ propietario._nombre }} Details</h2>
+  <div>
+    <span>DNI: </span>{{ propietario._DNI }} <br /><span>Nombre: </span>
+    {{ propietario._nombre }} <br /><span>Apelidos: </span>
+    {{ propietario._apellidos }} <br /><span>Propiedades: </span
+    >{{ propietario._propiedades }}
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

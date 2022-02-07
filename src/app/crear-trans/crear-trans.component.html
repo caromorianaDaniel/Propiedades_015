@@ -1,0 +1,51 @@
+<h1>Añadir Transacción</h1>
+
+<form>
+  <ul>
+    <li class="etiqueta"><label>Tipo de transacción:</label></li>
+    <li class="datos">
+      <select>
+        <option selected>Seleccione el tipo de propiedad</option>
+        <option>Venta</option>
+        <option>Alquiler</option>
+      </select>
+    </li>
+  </ul>
+  <p>Datos de los propietarios</p>
+  <ul>
+    <li class="etiqueta"><label>Introduzca el DNI del comprador:</label></li>
+    <li class="datos">
+      <select>
+        <option selected>Seleccione el DNI del comprador</option>
+        <option *ngFor="let propt of propietarios" value="{{ propt._DNI }}">
+          {{ propt._DNI }}
+        </option>
+      </select>
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Introduzca el DNI del vendedor:</label></li>
+    <li class="datos"><input type="text" placeholder="00000000A" />*</li>
+  </ul>
+  <p>Datos de la propiedad</p>
+  <ul>
+    <li class="etiqueta"><label>Número de la propiedad:</label></li>
+    <li class="datos"><input type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
+    <li class="datos"><input type="text" />*</li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
+    <li class="datos">
+      <select>
+        <option selected>Seleccione su Código Postal</option>
+        <option *ngFor="let ciudad of ciudades" value="{{ ciudad._codpost }}">
+          {{ ciudad._codpost }}
+        </option>
+      </select>
+    </li>
+  </ul>
+  <button type="submit">Submit</button>
+</form>

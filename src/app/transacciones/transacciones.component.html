@@ -1,0 +1,29 @@
+<h2>Mis Transacciones</h2>
+
+<div>
+  <label
+    >Transaccion identificador:
+    <input #transaccionId />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(transaccionId.value); transaccionId.value = ''">
+    add
+  </button>
+</div>
+
+<ul class="transacciones">
+  <li *ngFor="let transaccion of transacciones">
+    <a routerLink="/transacciones/detail/{{ transaccion._identificador }}">
+      <span class="badge">{{ transaccion._identificador }}</span>
+      <span>Precio: {{ transaccion._precio }} €</span>
+      <span> Fecha: {{ transaccion._fecha }} €</span>
+    </a>
+    <button
+      class="delete"
+      title="delete transaccion"
+      (click)="delete(transaccion)"
+    >
+      x
+    </button>
+  </li>
+</ul>

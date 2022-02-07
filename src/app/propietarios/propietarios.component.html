@@ -1,0 +1,29 @@
+<h2>Mis Propietarios</h2>
+
+<div>
+  <label
+    >Propietario identificador:
+    <input #propietarioId />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(propietarioId.value); propietarioId.value = ''">
+    add
+  </button>
+</div>
+
+<ul class="propietarios">
+  <li *ngFor="let propietario of propietarios">
+    <a routerLink="/propietarios/detail/{{ propietario._DNI }}">
+      <span class="badge">{{ propietario._DNI }}</span>
+      <span class="demas"> {{ propietario._nombre }} </span>
+      <span class="demas"> {{ propietario._apellidos }} </span>
+    </a>
+    <button
+      class="delete"
+      title="delete propietario"
+      (click)="delete(propietario)"
+    >
+      x
+    </button>
+  </li>
+</ul>
