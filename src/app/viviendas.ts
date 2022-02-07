@@ -23,7 +23,6 @@ export class Vivienda extends Propiedad {
     codpost: number,
     metrosc: number,
     preciom: number,
-    precioBase: number,
     propietario: string,
     antiguedad: Date,
     numHab: number,
@@ -42,7 +41,6 @@ export class Vivienda extends Propiedad {
       codpost,
       metrosc,
       preciom,
-      precioBase,
       propietario
     );
     this._antiguedad = antiguedad;

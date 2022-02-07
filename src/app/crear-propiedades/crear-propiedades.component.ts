@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Ciudades } from '../ciudades';
+import { Propiedad } from '../propiedades';
 import { PropiedadService } from '../propiedad.service';
 
 @Component({
@@ -10,9 +11,8 @@ import { PropiedadService } from '../propiedad.service';
   template: ``,
 })
 export class CrearPropiedadesComponent implements OnInit {
+  propiedades: Propiedad[];
   ciudades: Ciudades[];
-  solar = false;
-  viv = false;
 
   constructor(private propiedadService: PropiedadService) {}
 
@@ -24,11 +24,15 @@ export class CrearPropiedadesComponent implements OnInit {
       .getCiudades()
       .subscribe((ciudades) => (this.ciudades = ciudades));
   }
-  siguiente(tipo: string) {
-    if (tipo == 'Solar') {
-      return true;
-    } else if (tipo == 'Vivienda') {
-      return false;
+  add(_identificador: string): void {
+    _identificador = _identificador.trim();
+    if (!_identificador) {
+      return;
     }
+    this.propiedadService
+      .addPropiedad({ _identificador } as Propiedad)
+      .subscribe((propiedad) => {
+        this.propiedades.push(propiedad);
+      });
   }
 }

@@ -1,9 +1,20 @@
-form {
-  margin-left: 400px;
-  margin-right: 400px;
+form.Sol {
+  margin-left: 5%;
+  margin-right: 55%;
   margin-bottom: 30px;
   background-color: rgb(224, 224, 224);
   border: 3px black solid;
+}
+form.Viv {
+  margin-left: 55%;
+  margin-right: 5%;
+  margin-bottom: 30px;
+  background-color: rgb(224, 224, 224);
+  border: 3px black solid;
+}
+form h2 {
+  color: black;
+  text-align: center;
 }
 ul {
   margin-left: 20px;

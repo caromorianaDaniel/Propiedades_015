@@ -13,7 +13,6 @@ export class Solar extends Propiedad {
     codpost: number,
     metrosc: number,
     preciom: number,
-    precioBase: number,
     propietario: string,
     edificable: boolean,
     agua: boolean,
@@ -27,7 +26,6 @@ export class Solar extends Propiedad {
       codpost,
       metrosc,
       preciom,
-      precioBase,
       propietario
     );
     this._edificable = edificable;
