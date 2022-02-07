@@ -37,8 +37,8 @@
     <li class="datos">
       <select>
         <option selected>Seleccione su Código Postal</option>
-        <option *ngFor="let ciudad of ciudades" value="{{ ciudad._codpost }}">
-          {{ ciudad._codpost }}
+        <option *ngFor="let ciudad of ciudades" value="{{ ciudad.codpost }}">
+          {{ ciudad.codpost }}
         </option>
       </select>
     </li>
@@ -53,15 +53,5 @@
     <li class="etiqueta"><label>Propietario:</label></li>
     <li class="datos"><input type="text" /></li>
   </ul>
-  <button
-    type="submit"
-    *ngIf(tipo="Solar"
-    ){
-    routerlink="crearpropiedades/solar"
-    }elseif(tipo="Vivienda"
-    ){routerLink="crearpropiedades/vivienda"
-    }
-  >
-    Siguiente
-  </button>
+  <button type="submit" onclick="siguiente(tipo)">Siguienta</button>
 </form>

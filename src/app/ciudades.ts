@@ -8,4 +8,8 @@ export class Ciudades {
     this._preciom = preciom;
     this._codpost = codpost;
   }
+
+  codpost() {
+    return this._codpost;
+  }
 }

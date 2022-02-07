@@ -46,4 +46,40 @@ export class CrearTransComponent implements OnInit {
       .getCiudades()
       .subscribe((ciudades) => (this.ciudades = ciudades));
   }
+
+  getPropiedades(): void {
+    this.propiedadService
+      .getPropiedades()
+      .subscribe((propiedades) => (this.propiedades = propiedades));
+  }
+
+  getCiudades(): void {
+    this.propiedadService
+      .getCiudades()
+      .subscribe((ciudades) => (this.ciudades = ciudades));
+  }
+
+  getPropietarios(): void {
+    this.propietarioService
+      .getPropietarios()
+      .subscribe((propietarios) => (this.propietarios = propietarios));
+  }
+
+  getTransacciones(): void {
+    this.transaccionService
+      .getTransacciones()
+      .subscribe((transacciones) => (this.transacciones = transacciones));
+  }
+
+  add(_identificador: string): void {
+    _identificador = _identificador.trim();
+    if (!_identificador) {
+      return;
+    }
+    this.transaccionService
+      .addTransaccion({ _identificador } as Transaccion)
+      .subscribe((transaccion) => {
+        this.transacciones.push(transaccion);
+      });
+  }
 }

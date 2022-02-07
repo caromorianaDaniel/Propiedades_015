@@ -25,7 +25,14 @@
   </ul>
   <ul>
     <li class="etiqueta"><label>Introduzca el DNI del vendedor:</label></li>
-    <li class="datos"><input type="text" placeholder="00000000A" />*</li>
+    <li class="datos">
+      <select>
+        <option selected>Seleccione el DNI del comprador</option>
+        <option *ngFor="let propt2 of propietarios" value="{{ propt2._DNI }}">
+          {{ propt2._DNI }}
+        </option>
+      </select>
+    </li>
   </ul>
   <p>Datos de la propiedad</p>
   <ul>
@@ -41,11 +48,11 @@
     <li class="datos">
       <select>
         <option selected>Seleccione su Código Postal</option>
-        <option *ngFor="let ciudad of ciudades" value="{{ ciudad._codpost }}">
-          {{ ciudad._codpost }}
+        <option *ngFor="let ciudad of ciudades" value="{{ ciudad.codpost }}">
+          {{ ciudad.codpost }}
         </option>
       </select>
     </li>
   </ul>
-  <button type="submit">Submit</button>
+  <button type="submit">Guardar</button>
 </form>
