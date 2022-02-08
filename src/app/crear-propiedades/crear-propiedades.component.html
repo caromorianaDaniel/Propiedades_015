@@ -3,21 +3,13 @@
 <form class="Sol" [formGroup]="propiedadForm">
   <h2>Añadir Solares</h2>
   <ul>
-    <li class="etiqueta mt-3"><label>Numero de la propiedad:</label></li>
+    <li class="etiqueta"><label>Numero de la propiedad:</label></li>
     <li class="datos">
       <input
         #numeroP
         type="text"
-        formControlName="numero"
-        class="form-control form-control-lg"
       />*
     </li>
-    <li
-      *ngIf="
-        propiedadForm.get('numero').hasError('required');
-        && propiedadForm.get('numero').touched
-      "
-    ></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
