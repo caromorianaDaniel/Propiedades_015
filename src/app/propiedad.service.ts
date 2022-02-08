@@ -74,8 +74,9 @@ export class PropiedadService {
 
   /** POST: add a new propiedad to the server */
   addPropiedad(propiedad: Propiedad): Observable<Propiedad> {
+    const url = `${this.propiedadesUrl}/crear`;
     return this.http
-      .post<Propiedad>(this.propiedadesUrl, propiedad, this.httpOptions)
+      .post<Propiedad>(url, propiedad, this.httpOptions)
       .pipe(catchError(this.handleError<Propiedad>('addPropiedad')));
   }
 

@@ -39,7 +39,7 @@
   <ul>
     <li class="etiqueta"><label>Precio por metro cuadrado:</label></li>
     <li class="datos">
-      <input #preciom type="number" value="{{ ciudades[1].codpost }}" />
+      <input #preciom type="number" value="{{ ciudades[1]._preciom }}" />
     </li>
   </ul>
   <ul>
@@ -76,7 +76,7 @@
     <li class="etiqueta"><label>Lejanía del centro urbano:</label></li>
     <li class="datos"><input #lejania type="text" /></li>
   </ul>
-  <!--<button
+  <button
     type="submit"
     (click)="
       add_sol(
@@ -92,39 +92,39 @@
         edi.value,
         luz.value,
         agua.value,
-        lejani.value
+        lejania.value
       )
     "
   >
     Guardar
-  </button>-->
+  </button>
 </form>
 <form class="Viv">
   <h2>Añadir Vivienda</h2>
   <ul>
     <li class="etiqueta"><label>Numero de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #num2 type="text" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #calle12 type="text" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" /></li>
+    <li class="datos"><input #calle22 type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" /></li>
+    <li class="datos"><input #calle32 type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" /></li>
+    <li class="datos"><input #calle42 type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
     <li class="datos">
-      <select>
+      <select #codpost2>
         <option selected>Seleccione su Código Postal</option>
         <option *ngFor="let ciudad of ciudades" value="{{ ciudad.codpost }}">
           {{ ciudad.codpost }}
@@ -135,13 +135,19 @@
   <ul>
     <li class="etiqueta"><label>Precio por metro cuadrado:</label></li>
     <li class="datos">
-      <input type="number" placeholder="Precio del metro" value="" />
+      <input #preciom2 type="number" value="" />
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Metros cuadrados:</label></li>
+    <li class="datos">
+      <input #metrosc2 type="number" />
     </li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Propietario:</label></li>
     <li class="datos">
-      <select>
+      <select #propietario2>
         <option selected>Seleccione el DNI del comprador</option>
         <option *ngFor="let propt of propietarios" value="{{ propt._DNI }}">
           {{ propt._DNI }}
@@ -152,31 +158,56 @@
   </ul>
   <ul>
     <li class="etiqueta"><label>Antiguedad:</label></li>
-    <li class="datos"><input type="date" /></li>
+    <li class="datos"><input #ant type="date" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Número de Habitaciones:</label></li>
-    <li class="datos"><input type="number" /></li>
+    <li class="datos"><input #numha type="number" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Número de Baños:</label></li>
-    <li class="datos"><input type="number" /></li>
+    <li class="datos"><input #numba type="number" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Garage:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #garg type="checkbox" /></li>
   </ul>
   <ul>
     <p>Equipación de la Cocina:</p>
     <li class="etiqueta"><label>Horno:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #horno type="checkbox" /></li>
     <li class="etiqueta"><label>Microondas:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #micro type="checkbox" /></li>
     <li class="etiqueta"><label>Lavavajillas:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #lava type="checkbox" /></li>
     <li class="etiqueta"><label>Frigorífico:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #frigo type="checkbox" /></li>
   </ul>
 
-  <button type="submit">Guardar</button>
+  <button
+    type="submit"
+    (click)="
+      add_viv(
+        num2.value,
+        calle12.value,
+        calle22.value,
+        calle32.value,
+        calle42.value,
+        codpost2.value,
+        preciom2.value,
+        metrosc2.value,
+        propietario2.value,
+        ant.value,
+        numha.value,
+        numba.value,
+        garg.value,
+        horno.value,
+        micro.value,
+        lava.value,
+        frigo.value
+      )
+    "
+  >
+    Guardar
+  </button>
 </form>
