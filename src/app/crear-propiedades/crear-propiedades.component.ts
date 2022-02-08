@@ -48,18 +48,7 @@ export class CrearPropiedadesComponent implements OnInit {
       .getPropietarios()
       .subscribe((propietarios) => (this.propietarios = propietarios));
   }
-  add(_identificador: string): void {
-    _identificador = _identificador.trim();
-    if (!_identificador) {
-      return;
-    }
-    this.propiedadService
-      .addPropiedad({ _identificador } as Propiedad)
-      .subscribe((propiedad) => {
-        this.propiedades.push(propiedad);
-      });
-  }
-  add_sol(
+  /*add_sol(
     numero: string,
     calle1: string,
     calle2: string | undefined,
@@ -71,7 +60,8 @@ export class CrearPropiedadesComponent implements OnInit {
     propietario: string,
     edificable: any,
     luz: any,
-    agua: any
+    agua: any,
+    lejania: any
   ): void {
     (numero = numero.trim()),
       (calle1 = calle1.trim()),
@@ -84,8 +74,8 @@ export class CrearPropiedadesComponent implements OnInit {
       (propietario = propietario.trim()),
       (edificable = Boolean(edificable)),
       (luz = Boolean(luz)),
-      (agua = Boolean(agua));
-      lejania = Number(lejania)
+      (agua = Boolean(agua)),
+      (lejania = Number(lejania));
 
     let calles = [calle1, calle2, calle3, calle4];
     if (
@@ -97,28 +87,28 @@ export class CrearPropiedadesComponent implements OnInit {
       !propietario ||
       !edificable ||
       !luz ||
-      !agua
+      !agua ||
+      !lejania
     ) {
       return;
     }
     let identificador = `C/ ${calle1}, Nº ${numero}, ${codpost}`;
     const Propiedad: Solar = {
-      _identificador = identificador,
-      _tipoObjeto = 'Solar',
-      _numero = numero,
-      _calles = calles,
-      _codpost = codpost,
-      _preciom = preciom,
-      _metrosc = metrosc,
-      _propietario = propietario,
-      _edificable = edificable,
-      _luz = luz,
-      _agua = agua
-    } 
-    this.propiedadService
-      .addPropiedad({Propiedad} as Solar)
-      .subscribe((propiedad) => {
-        this.propiedades.push(propiedad);
-      });
-  }
+      identificador = identificador,
+      tipoObjeto: 'Solar',
+      numero: numero,
+      calles: calles,
+      codpost: codpost,
+      preciom: preciom,
+      metrosc: metrosc,
+      propietario: propietario,
+      edificable: edificable,
+      luz: luz,
+      agua: agua,
+      lejania: lejania,
+    };
+    this.propiedadService.addPropiedad(Propiedad).subscribe((propiedad) => {
+      this.propiedades.push(propiedad);
+    });
+  }*/
 }

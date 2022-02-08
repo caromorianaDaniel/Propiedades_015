@@ -1,15 +1,16 @@
 export class Propiedad {
-  public _identificador: string;
+  private _identificador: string;
   private _tipoObjeto: string;
-  public _numero: string;
-  public _calles: Array<string>;
-  public _codpost: number;
-  public _metrosc: number;
-  public _preciom: number;
-  public _propietario: string;
+  private _numero: string;
+  private _calles: Array<string>;
+  private _codpost: number;
+  private _metrosc: number;
+  private _preciom: number;
+  private _propietario: string;
 
   constructor(
     identificador: string,
+    tipoObjeto: string,
     numero: string,
     calles: Array<string>,
     codpost: number,
@@ -18,6 +19,7 @@ export class Propiedad {
     propietario: string
   ) {
     this._identificador = identificador;
+    this._tipoObjeto = tipoObjeto;
     this._numero = numero;
     this._calles = calles;
     this._codpost = codpost;
@@ -26,25 +28,28 @@ export class Propiedad {
     this._propietario = propietario;
   }
 
-  identificador() {
+  get identificador() {
     return this._identificador;
   }
-  numero() {
+  get tipoObjeto() {
+    return this._tipoObjeto;
+  }
+  get numero() {
     return this._numero;
   }
-  calles() {
+  get calles() {
     return this._calles;
   }
-  codpost() {
+  get codpost() {
     return this._codpost;
   }
-  metrosc() {
+  get metrosc() {
     return this._metrosc;
   }
-  preciom() {
+  get preciom() {
     return this._preciom;
   }
-  propietario() {
+  get propietario() {
     return this._propietario;
   }
 

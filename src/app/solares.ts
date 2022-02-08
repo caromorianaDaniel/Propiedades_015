@@ -8,6 +8,7 @@ export class Solar extends Propiedad {
 
   constructor(
     identificador: string,
+    tipoObjeto: string,
     numero: string,
     calles: Array<string>,
     codpost: number,
@@ -21,6 +22,7 @@ export class Solar extends Propiedad {
   ) {
     super(
       identificador,
+      tipoObjeto,
       numero,
       calles,
       codpost,
@@ -34,16 +36,16 @@ export class Solar extends Propiedad {
     this._lejania = lejania;
   }
 
-  edificable() {
+  get edificable() {
     return this._edificable;
   }
-  agua() {
+  get agua() {
     return this._agua;
   }
-  luz() {
+  get luz() {
     return this._luz;
   }
-  lejania() {
+  get lejania() {
     return this._lejania;
   }
 

@@ -82,7 +82,7 @@ export class PropiedadService {
   /** DELETE: delete the propiedad from the server */
   deletePropiedad(propiedad: Propiedad | string): Observable<Propiedad> {
     const _identificador =
-      typeof propiedad === 'string' ? propiedad : propiedad._identificador;
+      typeof propiedad === 'string' ? propiedad : propiedad.identificador;
     const url = `${this.propiedadesUrl}/${_identificador}`;
 
     return this.http

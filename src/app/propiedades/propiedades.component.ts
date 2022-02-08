@@ -23,17 +23,17 @@ export class PropiedadesComponent implements OnInit {
       .subscribe((propiedades) => (this.propiedades = propiedades));
   }
 
-  add(_identificador: string): void {
-    _identificador = _identificador.trim();
-    if (!_identificador) {
+  /*add(id: string): void {
+    id = id.trim();
+    if (!id) {
       return;
     }
     this.propiedadService
-      .addPropiedad({ _identificador } as Propiedad)
+      .addPropiedad({id } as Propiedad)
       .subscribe((propiedad) => {
         this.propiedades.push(propiedad);
       });
-  }
+  }*/
 
   delete(propiedad: Propiedad): void {
     this.propiedades = this.propiedades.filter((h) => h !== propiedad);

@@ -1,25 +1,15 @@
 <h2>Mis Propiedades</h2>
 
-<div>
-  <label
-    >Propiedad identificador:
-    <input #propiedadId />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(propiedadId.value); propiedadId.value = ''">add</button>
-</div>
-<br /><br />
-
 <ul class="propiedades">
   <li *ngFor="let propiedad of propiedades">
     <a
-      routerLink="/propiedades/detail/{{ propiedad._calles[0] }}/{{
-        propiedad._numero
-      }}/{{ propiedad._codpost }}"
+      routerLink="/propiedades/detail/{{ propiedad.calles[0] }}/{{
+        propiedad.numero
+      }}/{{ propiedad.codpost }}"
     >
-      <span class="badge">{{ propiedad._identificador }}</span>
-      <span>{{ propiedad._propietario }}</span>
-      <span>, Metros: {{ propiedad._metrosc }}</span>
+      <span class="badge">{{ propiedad.identificador }}</span>
+      <span>{{ propiedad.propietario }}</span>
+      <span>, Metros: {{ propiedad.metrosc }}</span>
       <span>, Precio: {{ propiedad.precio }} €</span>
     </a>
     <button class="delete" title="delete propiedad" (click)="delete(propiedad)">
