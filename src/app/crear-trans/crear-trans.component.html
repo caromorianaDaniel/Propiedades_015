@@ -12,6 +12,7 @@
     </li>
   </ul>
   <p>Datos de los propietarios</p>
+  <button (click)="getPropietarios()">Cargar Propietarios</button>
   <ul>
     <li class="etiqueta"><label>Introduzca el DNI del comprador:</label></li>
     <li class="datos">
@@ -36,20 +37,15 @@
   </ul>
   <p>Datos de la propiedad</p>
   <ul>
-    <li class="etiqueta"><label>Número de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
-  </ul>
-  <ul>
-    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
-  </ul>
-  <ul>
-    <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
+    <li class="etiqueta"><label>Identificador de la propiedad:</label></li>
     <li class="datos">
       <select>
-        <option selected>Seleccione su Código Postal</option>
-        <option *ngFor="let ciudad of ciudades" value="{{ ciudad.codpost }}">
-          {{ ciudad.codpost }}
+        <option selected>Seleccione su Identificador</option>
+        <option
+          *ngFor="let propiedad of propiedades"
+          value="{{ propiedad._identificador }}"
+        >
+          {{ propiedad._identificador }}
         </option>
       </select>
     </li>
