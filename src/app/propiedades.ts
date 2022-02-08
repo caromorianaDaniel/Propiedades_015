@@ -1,5 +1,6 @@
 export class Propiedad {
   public _identificador: string;
+  private _tipoObjeto: string;
   public _numero: string;
   public _calles: Array<string>;
   public _codpost: number;

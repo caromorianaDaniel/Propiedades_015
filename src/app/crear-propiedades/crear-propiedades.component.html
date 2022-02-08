@@ -4,12 +4,7 @@
   <h2>Añadir Solares</h2>
   <ul>
     <li class="etiqueta"><label>Numero de la propiedad:</label></li>
-    <li class="datos">
-      <input
-        #numeroP
-        type="text"
-      />*
-    </li>
+    <li class="datos"><input #numeroP type="text" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
@@ -77,6 +72,10 @@
     <li class="etiqueta"><label>Acceso a Agua:</label></li>
     <li class="datos"><input #agua type="checkbox" /></li>
   </ul>
+  <ul>
+    <li class="etiqueta"><label>Lejanía del centro urbano:</label></li>
+    <li class="datos"><input #lejania type="text" /></li>
+  </ul>
   <button
     type="submit"
     (click)="
@@ -92,7 +91,8 @@
         DNI.value,
         edi.value,
         luz.value,
-        agua.value
+        agua.value,
+        lejani.valu
       )
     "
   >

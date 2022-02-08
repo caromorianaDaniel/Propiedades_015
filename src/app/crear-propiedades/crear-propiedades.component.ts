@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Ciudades } from '../ciudades';
 import { Propiedad } from '../propiedades';
+import { Solar } from '../solares';
 import { Propietario } from '../propietarios';
 import { PropiedadService } from '../propiedad.service';
 import { PropietarioService } from '../propietario.service';
@@ -84,6 +85,7 @@ export class CrearPropiedadesComponent implements OnInit {
       (edificable = Boolean(edificable)),
       (luz = Boolean(luz)),
       (agua = Boolean(agua));
+      lejania = Number(lejania)
 
     let calles = [calle1, calle2, calle3, calle4];
     if (
@@ -99,5 +101,24 @@ export class CrearPropiedadesComponent implements OnInit {
     ) {
       return;
     }
+    let identificador = `C/ ${calle1}, Nº ${numero}, ${codpost}`;
+    const Propiedad: Solar = {
+      _identificador = identificador,
+      _tipoObjeto = 'Solar',
+      _numero = numero,
+      _calles = calles,
+      _codpost = codpost,
+      _preciom = preciom,
+      _metrosc = metrosc,
+      _propietario = propietario,
+      _edificable = edificable,
+      _luz = luz,
+      _agua = agua
+    } 
+    this.propiedadService
+      .addPropiedad({Propiedad} as Solar)
+      .subscribe((propiedad) => {
+        this.propiedades.push(propiedad);
+      });
   }
 }
