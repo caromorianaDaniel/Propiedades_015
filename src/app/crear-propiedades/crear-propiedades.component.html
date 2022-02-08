@@ -1,10 +1,23 @@
 <h1>Añadir Propiedad</h1>
 
-<form class="Sol">
+<form class="Sol" [formGroup]="propiedadForm">
   <h2>Añadir Solares</h2>
   <ul>
-    <li class="etiqueta"><label>Numero de la propiedad:</label></li>
-    <li class="datos"><input #numero type="text" />*</li>
+    <li class="etiqueta mt-3"><label>Numero de la propiedad:</label></li>
+    <li class="datos">
+      <input
+        #numeroP
+        type="text"
+        formControlName="numero"
+        class="form-control form-control-lg"
+      />*
+    </li>
+    <li
+      *ngIf="
+        propiedadForm.get('numero').hasError('required');
+        && propiedadForm.get('numero').touched
+      "
+    ></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
@@ -76,7 +89,7 @@
     type="submit"
     (click)="
       add_sol(
-        numero.value,
+        numeroP.value,
         calle1.value,
         calle2.value,
         calle3.value,

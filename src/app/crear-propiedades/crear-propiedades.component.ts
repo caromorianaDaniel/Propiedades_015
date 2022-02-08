@@ -5,6 +5,7 @@ import { Propiedad } from '../propiedades';
 import { Propietario } from '../propietarios';
 import { PropiedadService } from '../propiedad.service';
 import { PropietarioService } from '../propietario.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-propiedades',
@@ -16,11 +17,17 @@ export class CrearPropiedadesComponent implements OnInit {
   propiedades: Propiedad[];
   ciudades: Ciudades[];
   propietarios: Propietario[];
+  propiedadForm: FormGroup;
 
   constructor(
     private propiedadService: PropiedadService,
-    private propietarioService: PropietarioService
-  ) {}
+    private propietarioService: PropietarioService,
+    private fb: FormBuilder
+  ) {
+    this.propiedadForm = this.fb.group({
+      numero: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {
     this.getCiudades();
