@@ -4,30 +4,33 @@
   <h2>Añadir Solares</h2>
   <ul>
     <li class="etiqueta"><label>Numero de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #numero type="text" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #calle1 type="text" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #calle2 type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #calle3 type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #calle4 type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
     <li class="datos">
-      <select>
+      <select #codpost>
         <option selected>Seleccione su Código Postal</option>
-        <option *ngFor="let ciudad of ciudades" value="{{ ciudad.codpost }}">
+        <option
+          *ngFor="let ciudad of ciudades; let indice = index"
+          value="{{ ciudad.codpost }}"
+        >
           {{ ciudad.codpost }}
         </option>
       </select>
@@ -36,26 +39,60 @@
   <ul>
     <li class="etiqueta"><label>Precio por metro cuadrado:</label></li>
     <li class="datos">
-      <input type="number" placeholder="Precio del metro" value="" />
+      <input #preciom type="number" value="{{ ciudades[1].codpost }}" />
+    </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Metros cuadrados:</label></li>
+    <li class="datos">
+      <input #metrosc type="number" value="" />
     </li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Propietario:</label></li>
-    <li class="datos"><input type="text" /></li>
+    <li class="datos">
+      <select #DNI>
+        <option selected>Seleccione su DNI</option>
+        <option *ngFor="let propt of propietarios" value="{{ propt._DNI }}">
+          {{ propt._DNI }}
+        </option>
+      </select>
+    </li>
+    <button (click)="getPropietarios()">Cargar Propietarios</button>
   </ul>
   <ul>
     <li class="etiqueta"><label>Edificable:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #edi type="checkbox" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Acceso a Luz:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #luz type="checkbox" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Acceso a Agua:</label></li>
-    <li class="datos"><input type="checkbox" /></li>
+    <li class="datos"><input #agua type="checkbox" /></li>
   </ul>
-  <button type="submit">Guardar</button>
+  <button
+    type="submit"
+    (click)="
+      add_sol(
+        numero.value,
+        calle1.value,
+        calle2.value,
+        calle3.value,
+        calle4.value,
+        codpost.value,
+        preciom.value,
+        metrosc.value,
+        DNI.value,
+        edi.value,
+        luz.value,
+        agua.value
+      )
+    "
+  >
+    Guardar
+  </button>
 </form>
 <form class="Viv">
   <h2>Añadir Vivienda</h2>
@@ -69,15 +106,15 @@
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input type="text" /></li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
@@ -98,7 +135,15 @@
   </ul>
   <ul>
     <li class="etiqueta"><label>Propietario:</label></li>
-    <li class="datos"><input type="text" /></li>
+    <li class="datos">
+      <select>
+        <option selected>Seleccione el DNI del comprador</option>
+        <option *ngFor="let propt of propietarios" value="{{ propt._DNI }}">
+          {{ propt._DNI }}
+        </option>
+      </select>
+    </li>
+    <button (click)="getPropietarios()">Cargar Propietarios</button>
   </ul>
   <ul>
     <li class="etiqueta"><label>Antiguedad:</label></li>

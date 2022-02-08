@@ -12,7 +12,7 @@
 
 <ul class="propiedades">
   <li *ngFor="let propiedad of propiedades">
-    <a routerLink="/propiedades/detail/{{ propiedad._identificador }}">
+    <a routerLink="/propiedades/detail/{{propiedad._calles[0]}}/{{propiedad._numero}}/{{propiedad._codpost}}">
       <span class="badge">{{ propiedad._identificador }}</span>
       <span>{{ propiedad._propietario }}</span>
       <span>, Metros: {{ propiedad._metrosc }}</span>

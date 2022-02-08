@@ -11,7 +11,7 @@ import { Ciudades } from './ciudades';
 export class PropiedadService {
   private propiedadesUrl =
     'https://practica-restapi-heroku-dcm.herokuapp.com/propiedades'; // URL to web api
-    private ciudadesUrl =
+  private ciudadesUrl =
     'https://practica-restapi-heroku-dcm.herokuapp.com/ciudades'; // URL to web api
 
   httpOptions = {
@@ -42,14 +42,18 @@ export class PropiedadService {
   }
 
   /** GET propiedad by _identificador. Will 404 if _identificador not found */
-  getPropiedad(identificador: string): Observable<Propiedad> {
-    const url = `${this.propiedadesUrl}/buscar/${identificador}`;
+  getPropiedad(
+    numero: string,
+    calle: string,
+    codpost: number
+  ): Observable<Propiedad> {
+    const url = `${this.propiedadesUrl}/buscar/${calle}/${numero}/${codpost}`;
     return this.http
       .get<Propiedad>(url)
       .pipe(
         catchError(
           this.handleError<Propiedad>(
-            `getPropiedad identificador=${identificador}`
+            `getPropiedad calle=${calle} numero=${numero} codpost=${codpost}`
           )
         )
       );

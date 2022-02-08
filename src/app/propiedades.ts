@@ -25,47 +25,30 @@ export class Propiedad {
     this._propietario = propietario;
   }
 
-  get identificador() {
+  identificador() {
     return this._identificador;
   }
-  get numero() {
+  numero() {
     return this._numero;
   }
-  get calles() {
+  calles() {
     return this._calles;
   }
-  get codpost() {
+  codpost() {
     return this._codpost;
   }
-  get metrosc() {
+  metrosc() {
     return this._metrosc;
   }
-  get preciom() {
+  preciom() {
     return this._preciom;
   }
-  get propietario() {
+  propietario() {
     return this._propietario;
-  }
-
-  cprecioBase() {
-    let precioBase = this._metrosc * this._preciom;
-    return precioBase;
   }
 
   precio() {
     let precio = this._metrosc * this._preciom;
     return precio;
-  }
-
-  imprimir(): any {
-    let imprimir: string;
-    imprimir = `Identificador: ${this._identificador},
-    Otras Calles:
-    ${this.calles[1]},
-    ${this.calles[2]},
-    ${this.calles[3]},
-    Metros Cuadrados: ${this._metrosc},
-    Precio del Metro: ${this._preciom}`;
-    return imprimir;
   }
 }

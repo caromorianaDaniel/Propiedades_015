@@ -18,8 +18,6 @@ import { TransaccionesComponent } from './transacciones/transacciones.component'
 import { TransSearchComponent } from './trans-search/trans-search.component';
 import { CrearPropiedadesComponent } from './crear-propiedades/crear-propiedades.component';
 import { CrearProptComponent } from './crear-propt/crear-propt.component';
-import { CrearSolaresComponent } from './crear-solares/crear-solares.component';
-import { CrearViviendasComponent } from './crear-viviendas/crear-viviendas.component';
 import { CrearTransComponent } from './crear-trans/crear-trans.component';
 
 @NgModule({
@@ -38,8 +36,6 @@ import { CrearTransComponent } from './crear-trans/crear-trans.component';
     TransSearchComponent,
     CrearPropiedadesComponent,
     CrearProptComponent,
-    CrearSolaresComponent,
-    CrearViviendasComponent,
     CrearTransComponent,
   ],
   bootstrap: [AppComponent],

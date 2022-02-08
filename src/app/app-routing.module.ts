@@ -10,15 +10,13 @@ import { TransaccionesComponent } from './transacciones/transacciones.component'
 import { TransDetailComponent } from './trans-detail/trans-detail.component';
 import { CrearPropiedadesComponent } from './crear-propiedades/crear-propiedades.component';
 import { CrearProptComponent } from './crear-propt/crear-propt.component';
-import { CrearSolaresComponent } from './crear-solares/crear-solares.component';
-import { CrearViviendasComponent } from './crear-viviendas/crear-viviendas.component';
 import { CrearTransComponent } from './crear-trans/crear-trans.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   {
-    path: 'propiedades/detail/:_identificador',
+    path: 'propiedades/detail/:_calles[0]/:numero/:codpost',
     component: PropdDetailComponent,
   },
   { path: 'propietarios/detail/:_DNI', component: ProptDetailComponent },
@@ -32,8 +30,6 @@ const routes: Routes = [
   { path: 'crearpropiedades', component: CrearPropiedadesComponent },
   { path: 'crearpropietarios', component: CrearProptComponent },
   { path: 'creartransacciones', component: CrearTransComponent },
-  { path: 'crearpropiedades/solar', component: CrearSolaresComponent },
-  { path: 'crearpropiedades/vivienda', component: CrearViviendasComponent },
 ];
 
 @NgModule({

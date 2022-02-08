@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Ciudades } from '../ciudades';
 import { Propiedad } from '../propiedades';
+import { Propietario } from '../propietarios';
 import { PropiedadService } from '../propiedad.service';
+import { PropietarioService } from '../propietario.service';
 
 @Component({
   selector: 'app-crear-propiedades',
@@ -13,8 +15,12 @@ import { PropiedadService } from '../propiedad.service';
 export class CrearPropiedadesComponent implements OnInit {
   propiedades: Propiedad[];
   ciudades: Ciudades[];
+  propietarios: Propietario[];
 
-  constructor(private propiedadService: PropiedadService) {}
+  constructor(
+    private propiedadService: PropiedadService,
+    private propietarioService: PropietarioService
+  ) {}
 
   ngOnInit() {
     this.getCiudades();
@@ -23,6 +29,16 @@ export class CrearPropiedadesComponent implements OnInit {
     this.propiedadService
       .getCiudades()
       .subscribe((ciudades) => (this.ciudades = ciudades));
+  }
+  getPropiedades(): void {
+    this.propiedadService
+      .getPropiedades()
+      .subscribe((propiedades) => (this.propiedades = propiedades));
+  }
+  getPropietarios(): void {
+    this.propietarioService
+      .getPropietarios()
+      .subscribe((propietarios) => (this.propietarios = propietarios));
   }
   add(_identificador: string): void {
     _identificador = _identificador.trim();
@@ -34,5 +50,47 @@ export class CrearPropiedadesComponent implements OnInit {
       .subscribe((propiedad) => {
         this.propiedades.push(propiedad);
       });
+  }
+  add_sol(
+    numero: string,
+    calle1: string,
+    calle2: string | undefined,
+    calle3: string | undefined,
+    calle4: string | undefined,
+    codpost: any,
+    preciom: any,
+    metrosc: any,
+    propietario: string,
+    edificable: any,
+    luz: any,
+    agua: any
+  ): void {
+    (numero = numero.trim()),
+      (calle1 = calle1.trim()),
+      (calle2 = calle2.trim()),
+      (calle3 = calle3.trim()),
+      (calle4 = calle4.trim()),
+      (codpost = Number(codpost)),
+      (preciom = Number(preciom)),
+      (metrosc = Number(metrosc)),
+      (propietario = propietario.trim()),
+      (edificable = Boolean(edificable)),
+      (luz = Boolean(luz)),
+      (agua = Boolean(agua));
+
+    let calles = [calle1, calle2, calle3, calle4];
+    if (
+      !numero ||
+      !calles ||
+      !codpost ||
+      !preciom ||
+      !metrosc ||
+      !propietario ||
+      !edificable ||
+      !luz ||
+      !agua
+    ) {
+      return;
+    }
   }
 }
