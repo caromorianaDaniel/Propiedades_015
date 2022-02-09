@@ -24,9 +24,10 @@ export class TransDetailComponent implements OnInit {
   }
 
   getTransaccion(): void {
-    const DNI: string = this.route.snapshot.paramMap.get('_DNI');
+    const identificador: string =
+      this.route.snapshot.paramMap.get('_identificador');
     this.transaccionService
-      .getTransaccion(DNI)
+      .getTransaccion(identificador)
       .subscribe((transaccion) => (this.transaccion = transaccion));
   }
 

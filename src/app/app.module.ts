@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,6 +25,7 @@ import { CrearTransComponent } from './crear-trans/crear-trans.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    HighchartsChartModule,
   ],
   declarations: [
     AppComponent,
