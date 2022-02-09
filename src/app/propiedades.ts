@@ -1,12 +1,12 @@
 export class Propiedad {
-  private _identificador: string;
-  private _tipoObjeto: string;
-  private _numero: string;
-  private _calles: Array<string>;
-  private _codpost: number;
-  private _metrosc: number;
-  private _preciom: number;
-  private _propietario: string;
+  public _identificador: string;
+  public _tipoObjeto: string;
+  public _numero: string;
+  public _calles: Array<string>;
+  public _codpost: number;
+  public _metrosc: number;
+  public _preciom: number;
+  public _propietario: string;
 
   constructor(
     identificador: string,
@@ -53,7 +53,7 @@ export class Propiedad {
     return this._propietario;
   }
 
-  precio() {
+  get precio() {
     let precio = this._metrosc * this._preciom;
     return precio;
   }

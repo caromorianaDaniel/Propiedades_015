@@ -3,39 +3,40 @@
 <form>
   <ul>
     <li class="etiqueta"><label>Introduzca su DNI:</label></li>
-    <li class="datos"><input type="text" placeholder="00000000A" />*</li>
+    <li class="datos"><input #DNI type="text" placeholder="00000000A" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Introduzca su nombre:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #nom type="text" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Introduzca sus apellidos:</label></li>
-    <li class="datos"><input type="text" />*</li>
+    <li class="datos"><input #ape type="text" />*</li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Fecha de nacimiento:</label></li>
-    <li class="datos"><input type="date" />*</li>
+    <li class="datos"><input #nac type="date" />*</li>
   </ul>
-  <span>-Datos de su propiedad</span>
+  <p>Datos de la propiedad</p>
   <ul>
-    <li class="etiqueta"><label>Número de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
-  </ul>
-  <ul>
-    <li class="etiqueta"><label>Calle de la propiedad:</label></li>
-    <li class="datos"><input type="text" />*</li>
-  </ul>
-  <ul>
-    <li class="etiqueta"><label>Código Postal de la propiedad:</label></li>
+    <li class="etiqueta"><label>Identificador de la propiedad:</label></li>
     <li class="datos">
-      <select>
-        <option selected>Seleccione su Código Postal</option>
-        <option *ngFor="let ciudad of ciudades" value="{{ ciudad.codpost }}">
-          {{ ciudad.codpost }}
+      <select #idpropd>
+        <option selected>Seleccione su Identificador</option>
+        <option
+          *ngFor="let propiedad of propiedades"
+          value="{{ propiedad._identificador }}"
+        >
+          {{ propiedad._identificador }}
         </option>
       </select>
     </li>
   </ul>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button (click)="getPropiedades()">Cargar Propiedades</button>
+  <button
+    type="submit"
+    (click)="save(DNI.value, nom.value, ape.value, nac.value, idpropd.value)"
+  >
+    Guardar
+  </button>
 </form>

@@ -3,13 +3,13 @@
 <ul class="propiedades">
   <li *ngFor="let propiedad of propiedades">
     <a
-      routerLink="/propiedades/detail/{{ propiedad.calles[0] }}/{{
-        propiedad.numero
-      }}/{{ propiedad.codpost }}"
+      routerLink="/propiedades/detail/{{ propiedad._calles[0] }}/{{
+        propiedad._numero
+      }}/{{ propiedad._codpost }}"
     >
-      <span class="badge">{{ propiedad.identificador }}</span>
-      <span>{{ propiedad.propietario }}</span>
-      <span>, Metros: {{ propiedad.metrosc }}</span>
+      <span class="badge">{{ propiedad._identificador }}</span>
+      <span>{{ propiedad._propietario }}</span>
+      <span>, Metros: {{ propiedad._metrosc }}</span>
       <span>, Precio: {{ propiedad.precio }} €</span>
     </a>
     <button class="delete" title="delete propiedad" (click)="delete(propiedad)">

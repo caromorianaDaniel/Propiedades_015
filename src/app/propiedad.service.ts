@@ -85,7 +85,6 @@ export class PropiedadService {
     const _identificador =
       typeof propiedad === 'string' ? propiedad : propiedad.identificador;
     const url = `${this.propiedadesUrl}/${_identificador}`;
-
     return this.http
       .delete<Propiedad>(url, this.httpOptions)
       .pipe(catchError(this.handleError<Propiedad>('deletePropiedad')));
