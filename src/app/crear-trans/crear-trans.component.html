@@ -4,7 +4,7 @@
   <ul>
     <li class="etiqueta"><label>Tipo de transacción:</label></li>
     <li class="datos">
-      <select>
+      <select #tipo>
         <option selected>Seleccione el tipo de transacción</option>
         <option>Venta</option>
         <option>Alquiler</option>
@@ -15,7 +15,7 @@
   <ul>
     <li class="etiqueta"><label>Introduzca el DNI del comprador:</label></li>
     <li class="datos">
-      <select>
+      <select #DNIc>
         <option selected>Seleccione el DNI del comprador</option>
         <option *ngFor="let propt of propietarios" value="{{ propt._DNI }}">
           {{ propt._DNI }}
@@ -26,7 +26,7 @@
   <ul>
     <li class="etiqueta"><label>Introduzca el DNI del vendedor:</label></li>
     <li class="datos">
-      <select>
+      <select #DNIv>
         <option selected>Seleccione el DNI del comprador</option>
         <option *ngFor="let propt2 of propietarios" value="{{ propt2._DNI }}">
           {{ propt2._DNI }}
@@ -39,7 +39,7 @@
   <ul>
     <li class="etiqueta"><label>Identificador de la propiedad:</label></li>
     <li class="datos">
-      <select>
+      <select #idpropd>
         <option selected>Seleccione su Identificador</option>
         <option
           *ngFor="let propiedad of propiedades"
@@ -49,6 +49,10 @@
         </option>
       </select>
     </li>
+  </ul>
+  <ul>
+    <li class="etiqueta"><label>Plazos del pago:</label></li>
+    <li class="datos"><input type="text" /></li>
   </ul>
   <button (click)="getPropiedades()">Cargar Propiedades</button>
   <button type="submit">Guardar</button>

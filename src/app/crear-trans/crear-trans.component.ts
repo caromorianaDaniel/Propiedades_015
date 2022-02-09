@@ -56,13 +56,27 @@ export class CrearTransComponent implements OnInit {
       .subscribe((transacciones) => (this.transacciones = transacciones));
   }
 
-  add(_identificador: string): void {
-    _identificador = _identificador.trim();
-    if (!_identificador) {
+  save(
+    tipo: string,
+    DNIc: string,
+    DNIv: string,
+    idpropd: string,
+    plazos: any
+  ): void {
+    tipo = tipo.trim();
+    DNIc = DNIc.trim();
+    DNIv = DNIv.trim();
+    idpropd = idpropd.trim();
+    plazos = Number(plazos);
+    let fecha = new Date();
+    let precio = 1;
+    let pago = precio / plazos;
+
+    if (!tipo || !DNIc || !DNIv || !idpropd || !plazos) {
       return;
     }
     this.transaccionService
-      .addTransaccion({ _identificador } as Transaccion)
+      .addTransaccion({} as Transaccion)
       .subscribe((transaccion) => {
         this.transacciones.push(transaccion);
       });
