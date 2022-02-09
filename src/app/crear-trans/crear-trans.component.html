@@ -43,17 +43,24 @@
         <option selected>Seleccione su Identificador</option>
         <option
           *ngFor="let propiedad of propiedades"
-          value="{{ propiedad.identificador }}"
+          value="{{ propiedad._identificador }}"
         >
-          {{ propiedad.identificador }}
+          {{ propiedad._identificador }}
         </option>
       </select>
     </li>
   </ul>
   <ul>
     <li class="etiqueta"><label>Plazos del pago:</label></li>
-    <li class="datos"><input type="text" /></li>
+    <li class="datos"><input #plazos type="text" /></li>
   </ul>
   <button (click)="getPropiedades()">Cargar Propiedades</button>
-  <button type="submit">Guardar</button>
+  <button
+    type="submit"
+    (click)="
+      save(tipo.value, DNIc.value, DNIv.value, idpropd.value, plazos.value)
+    "
+  >
+    Guardar
+  </button>
 </form>

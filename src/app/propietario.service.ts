@@ -17,7 +17,6 @@ export class PropietarioService {
 
   constructor(private http: HttpClient) {}
 
-  /** GET propietarios from the server */
   getPropietarios(): Observable<Propietario[]> {
     const url = `${this.propietariosUrl}`;
     return this.http
@@ -25,7 +24,6 @@ export class PropietarioService {
       .pipe(catchError(this.handleError<Propietario[]>('getPropietarios', [])));
   }
 
-  /** GET propietario by _DNI. Return `undefined` when _DNI not found */
   getPropietariosNo404<Data>(_DNI: string): Observable<Propietario> {
     const url = `${this.propietariosUrl}/?_DNI=${_DNI}`;
     return this.http.get<Propietario[]>(url).pipe(
@@ -34,7 +32,6 @@ export class PropietarioService {
     );
   }
 
-  /** GET propietario by _DNI. Will 404 if _DNI not found */
   getPropietario(_DNI: string): Observable<Propietario> {
     const url = `${this.propietariosUrl}/buscar/${_DNI}`;
     return this.http
@@ -44,22 +41,6 @@ export class PropietarioService {
       );
   }
 
-  /* GET propietarios whose _DNI contains search term */
-  searchPropietarios(term: string): Observable<Propietario[]> {
-    if (!term.trim()) {
-      // if not search term, return empty propietario array.
-      return of([]);
-    }
-    return this.http
-      .get<Propietario[]>(`${this.propietariosUrl}/buscar/?_DNI=${term}`)
-      .pipe(
-        catchError(this.handleError<Propietario[]>('searchPropietarios', []))
-      );
-  }
-
-  //////// Save methods //////////
-
-  /** POST: add a new propietario to the server */
   addPropietario(propietario: Propietario): Observable<Propietario> {
     const url = `${this.propietariosUrl}/crear`;
     return this.http
@@ -67,7 +48,6 @@ export class PropietarioService {
       .pipe(catchError(this.handleError<Propietario>('addPropietario')));
   }
 
-  /** DELETE: delete the propietario from the server */
   deletePropietario(
     propietario: Propietario | string
   ): Observable<Propietario> {
@@ -80,7 +60,6 @@ export class PropietarioService {
       .pipe(catchError(this.handleError<Propietario>('deletePropietario')));
   }
 
-  /** PUT: update the propietario on the server */
   updatePropietario(propietario: Propietario): Observable<any> {
     return this.http
       .put(this.propietariosUrl, propietario, this.httpOptions)

@@ -73,8 +73,9 @@ export class TransaccionService {
 
   /** POST: add a new transaccion to the server */
   addTransaccion(transaccion: Transaccion): Observable<Transaccion> {
+    const url = `${this.transaccionesUrl}/crear`;
     return this.http
-      .post<Transaccion>(this.transaccionesUrl, transaccion, this.httpOptions)
+      .post<Transaccion>(url, transaccion, this.httpOptions)
       .pipe(catchError(this.handleError<Transaccion>('addTransaccion')));
   }
 
