@@ -45,12 +45,13 @@ export class CrearProptComponent implements OnInit {
     if (!DNI || !nom || !ape || !nac || !idpropd) {
       return;
     }
+    let propiedades = [idpropd];
     const Propietario: any = {
       DNI: DNI,
       nombre: nom,
       apellidos: ape,
       nacimiento: nac,
-      idpropd: idpropd,
+      propiedades: propiedades,
     };
     this.propietarioService
       .addPropietario(Propietario)

@@ -35,8 +35,11 @@ export class PropiedadesComponent implements OnInit {
       });
   }*/
 
-  delete(propiedad: Propiedad): void {
-    this.propiedades = this.propiedades.filter((h) => h !== propiedad);
-    this.propiedadService.deletePropiedad(propiedad).subscribe();
+  delete(numero: string, calle: string, codpost: any): void {
+    numero = numero.trim();
+    calle = calle.trim();
+    codpost = Number(codpost);
+    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    this.propiedadService.deletePropiedad(identificador).subscribe();
   }
 }

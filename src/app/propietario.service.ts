@@ -61,8 +61,9 @@ export class PropietarioService {
 
   /** POST: add a new propietario to the server */
   addPropietario(propietario: Propietario): Observable<Propietario> {
+    const url = `${this.propietariosUrl}/crear`;
     return this.http
-      .post<Propietario>(this.propietariosUrl, propietario, this.httpOptions)
+      .post<Propietario>(url, propietario, this.httpOptions)
       .pipe(catchError(this.handleError<Propietario>('addPropietario')));
   }
 

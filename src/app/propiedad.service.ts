@@ -81,13 +81,11 @@ export class PropiedadService {
   }
 
   /** DELETE: delete the propiedad from the server */
-  deletePropiedad(propiedad: Propiedad | string): Observable<Propiedad> {
-    const _identificador =
-      typeof propiedad === 'string' ? propiedad : propiedad.identificador;
-    const url = `${this.propiedadesUrl}/${_identificador}`;
+  deletePropiedad(identificador: string): Observable<Propiedad[]> {
+    const url = `${this.propiedadesUrl}/eliminar`;
     return this.http
-      .delete<Propiedad>(url, this.httpOptions)
-      .pipe(catchError(this.handleError<Propiedad>('deletePropiedad')));
+      .delete<string>(url, this.httpOptions)
+      .pipe(catchError(this.handleError<any>('deletePropiedad')));
   }
 
   /** PUT: update the propiedad on the server */
