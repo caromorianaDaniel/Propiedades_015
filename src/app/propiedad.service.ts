@@ -20,7 +20,6 @@ export class PropiedadService {
 
   constructor(private http: HttpClient) {}
 
-  /** GET propiedades from the server */
   getPropiedades(): Observable<Propiedad[]> {
     const url = `${this.propiedadesUrl}`;
     return this.http
@@ -28,7 +27,6 @@ export class PropiedadService {
       .pipe(catchError(this.handleError<Propiedad[]>('getPropiedades', [])));
   }
 
-  /** GET propiedad by _identificador. Return `undefined` when _identificador not found */
   getPropiedadNo404<Data>(identificador: string): Observable<Propiedad> {
     const url = `${this.propiedadesUrl}/buscar/${identificador}`;
     return this.http.get<Propiedad[]>(url).pipe(
@@ -41,7 +39,6 @@ export class PropiedadService {
     );
   }
 
-  /** GET propiedad by _identificador. Will 404 if _identificador not found */
   getPropiedad(
     numero: string,
     calle: string,
@@ -59,20 +56,6 @@ export class PropiedadService {
       );
   }
 
-  /* GET propiedades whose _identificador contains search term */
-  searchPropiedades(term: string): Observable<Propiedad[]> {
-    if (!term.trim()) {
-      // if not search term, return empty propiedad array.
-      return of([]);
-    }
-    return this.http
-      .get<Propiedad[]>(`${this.propiedadesUrl}/?_identificador=${term}`)
-      .pipe(catchError(this.handleError<Propiedad[]>('searchPropiedades', [])));
-  }
-
-  //////// Save methods //////////
-
-  /** POST: add a new propiedad to the server */
   addPropiedad(propiedad: Propiedad): Observable<Propiedad> {
     const url = `${this.propiedadesUrl}/crear`;
     return this.http
@@ -80,7 +63,6 @@ export class PropiedadService {
       .pipe(catchError(this.handleError<Propiedad>('addPropiedad')));
   }
 
-  /** DELETE: delete the propiedad from the server */
   deletePropiedad(identificador: string): Observable<Propiedad[]> {
     const url = `${this.propiedadesUrl}/eliminar`;
     return this.http
@@ -88,7 +70,6 @@ export class PropiedadService {
       .pipe(catchError(this.handleError<any>('deletePropiedad')));
   }
 
-  /** PUT: update the propiedad on the server */
   updatePropiedad(propiedad: Propiedad): Observable<any> {
     return this.http
       .put(this.propiedadesUrl, propiedad, this.httpOptions)
