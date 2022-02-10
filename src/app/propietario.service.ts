@@ -53,7 +53,7 @@ export class PropietarioService {
   ): Observable<Propietario> {
     const _DNI =
       typeof propietario === 'string' ? propietario : propietario._DNI;
-    const url = `${this.propietariosUrl}/${_DNI}`;
+    const url = `${this.propietariosUrl}/eliminar/${_DNI}`;
 
     return this.http
       .delete<Propietario>(url, this.httpOptions)

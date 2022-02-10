@@ -24,11 +24,8 @@ export class PropiedadesComponent implements OnInit {
       .subscribe((propiedades) => (this.propiedades = propiedades));
   }
 
-  delete(numero: string, calle: string, codpost: any): void {
-    numero = numero.trim();
-    calle = calle.trim();
-    codpost = Number(codpost);
-    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
+  delete(identificador: string): void {
+    identificador = identificador.trim();
     this.propiedadService.deletePropiedad(identificador).subscribe();
   }
 }
