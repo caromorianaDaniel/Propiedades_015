@@ -24,8 +24,10 @@ export class PropiedadesComponent implements OnInit {
       .subscribe((propiedades) => (this.propiedades = propiedades));
   }
 
-  delete(identificador: string): void {
-    identificador = identificador.trim();
-    this.propiedadService.deletePropiedad(identificador).subscribe();
+  delete(calle: string, numero: string, codpost: any): void {
+    calle = calle.trim();
+    numero = numero.trim();
+    codpost = Number(codpost);
+    this.propiedadService.deletePropiedad(calle, numero, codpost).subscribe();
   }
 }

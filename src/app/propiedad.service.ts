@@ -39,13 +39,11 @@ export class PropiedadService {
     );
   }
 
-  getPropiedad(identificador: string): Observable<Propiedad> {
-    let callesep = identificador.split(',');
-    console.log(callesep);
-    let callesep2 = callesep[0].split(' ');
-    let calle = '';
-    let numero = '';
-    let codpost = '';
+  getPropiedad(
+    calle: string,
+    numero: string,
+    codpost: number
+  ): Observable<Propiedad> {
     const url = `${this.propiedadesUrl}/buscar/${calle}/${numero}/${codpost}`;
     return this.http
       .get<Propiedad>(url)
@@ -64,8 +62,12 @@ export class PropiedadService {
       .pipe(catchError(this.handleError<Propiedad>('addPropiedad')));
   }
 
-  deletePropiedad(identificador: string): Observable<Propiedad[]> {
-    const url = `${this.propiedadesUrl}/eliminar/${identificador}`;
+  deletePropiedad(
+    calle: string,
+    numero: string,
+    codpost: number
+  ): Observable<Propiedad[]> {
+    const url = `${this.propiedadesUrl}/eliminar/${calle}/${numero}/${codpost}`;
     return this.http
       .delete(url, this.httpOptions)
       .pipe(catchError(this.handleError<any>('deletePropiedad')));

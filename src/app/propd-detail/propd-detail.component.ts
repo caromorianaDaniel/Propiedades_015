@@ -24,10 +24,11 @@ export class PropdDetailComponent implements OnInit {
   }
 
   getPropiedad(): void {
-    const identificador: string =
-      this.route.snapshot.paramMap.get('_identificador');
+    const calle: string = this.route.snapshot.paramMap.get('calle');
+    const numero: string = this.route.snapshot.paramMap.get('numero');
+    const codpost: number = Number(this.route.snapshot.paramMap.get('codpost'));
     this.propiedadService
-      .getPropiedad(identificador)
+      .getPropiedad(calle, numero, codpost)
       .subscribe((propiedad) => (this.propiedad = propiedad));
   }
 

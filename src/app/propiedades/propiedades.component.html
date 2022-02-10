@@ -2,25 +2,26 @@
 
 <ul class="propiedades">
   <li *ngFor="let propiedad of propiedades">
-    <a
-      *ngFor="let calles of propiedad._calles"
-      routerLink="/propiedades/detail/{{ calles[0] }}/{{ propiedad._numero }}/{{
-        propiedad._codpost
-      }}"
-    >
-      <span class="badge">{{ propiedad._identificador }}</span>
-      <span>Tipo:{{ propiedad.tipoObjeto }},</span>
+    <div *ngFor="let calles of propiedad._calles">
+      <a
+        routerLink="/propiedades/detail/{{ calles[0] }}/{{
+          propiedad._numero
+        }}/{{ propiedad._codpost }}"
+      >
+        <span class="badge">{{ propiedad._identificador }}</span>
+        <span>Tipo:{{ propiedad.tipoObjeto }},</span>
 
-      <span> {{ propiedad._propietario }}, </span>
-      <span> Metros: {{ propiedad._metrosc }}</span>
-      <span>, Precio: {{ propiedad.precio }} €</span>
-    </a>
-    <button
-      class="delete"
-      title="delete propiedad"
-      (click)="delete(propiedad._identificador)"
-    >
-      x
-    </button>
+        <span> {{ propiedad._propietario }}, </span>
+        <span> Metros: {{ propiedad._metrosc }}</span>
+        <span>, Precio: {{ propiedad.precio }} €</span>
+      </a>
+      <button
+        class="delete"
+        title="delete propiedad"
+        (click)="delete(calles[0], propiedad._numero, propiedad._codpost)"
+      >
+        x
+      </button>
+    </div>
   </li>
 </ul>
