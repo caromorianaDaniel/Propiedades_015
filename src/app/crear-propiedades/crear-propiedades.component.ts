@@ -22,13 +22,8 @@ export class CrearPropiedadesComponent implements OnInit {
 
   constructor(
     private propiedadService: PropiedadService,
-    private propietarioService: PropietarioService,
-    private fb: FormBuilder
-  ) {
-    this.propiedadForm = this.fb.group({
-      numero: ['', Validators.required],
-    });
-  }
+    private propietarioService: PropietarioService
+  ) {}
 
   ngOnInit() {
     this.getCiudades();

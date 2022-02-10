@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   {
-    path: 'propiedades/detail/:calles/:numero/:codpost',
+    path: 'propiedades/detail/:calle/:numero/:codpost',
     component: PropdDetailComponent,
   },
   { path: 'propietarios/detail/:_DNI', component: ProptDetailComponent },

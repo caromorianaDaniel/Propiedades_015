@@ -1,6 +1,20 @@
 <div>
-  <h2>{{ propiedad._identificador | uppercase }} Details</h2>
-  <div><span>identificador: </span>{{ propiedad._identificador }}</div>
+  <h2>Detalles de {{ propiedad._identificador | uppercase }}</h2>
+  <div><span>Identificador: </span>{{ propiedad._identificador }}</div>
+  <div><span>Tipo de Propiedad: </span>{{ propiedad._tipoObjeto }}</div>
+  <div><span>Número: </span>{{ propiedad._numero }}</div>
+  <div *ngFor="let calles of propiedad._calles">
+    <label>Calles</label>
+    <br /><span>Primera Calle: </span>{{ calles[0] }}<br /><span
+      >Segunda Calle: </span
+    >{{ calles[1] }}<br /><span>Tercera Calle: </span>{{ calles[2] }}<br />
+    <span>Cuarta Calle: </span>{{ calles[3] }}
+  </div>
+  <div><span>Codigo Postal: </span>{{ propiedad._codpost }}</div>
+  <div><span>Metros Cuadrados: </span>{{ propiedad._metrosc }}</div>
+  <div><span>Precio del Metro: </span>{{ propiedad._preciom }}</div>
+  <div><span>Propietario: </span>{{ propiedad._propietario }}</div>
+  ongo
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
 </div>
