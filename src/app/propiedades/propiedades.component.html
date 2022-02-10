@@ -2,8 +2,8 @@
 
 <ul class="propiedades">
   <li *ngFor="let propiedad of propiedades">
-    <span *ngFor="let calles of propiedad._calles"> </span>
     <a
+      *ngFor="let calles of propiedad._calles"
       routerLink="/propiedades/detail/{{ calles[0] }}/{{ propiedad._numero }}/{{
         propiedad._codpost
       }}"
