@@ -15,6 +15,7 @@ export class PropiedadesComponent implements OnInit {
 
   ngOnInit() {
     this.getPropiedades();
+    console.log(this.propiedades);
   }
 
   getPropiedades(): void {
@@ -22,18 +23,6 @@ export class PropiedadesComponent implements OnInit {
       .getPropiedades()
       .subscribe((propiedades) => (this.propiedades = propiedades));
   }
-
-  /*add(id: string): void {
-    id = id.trim();
-    if (!id) {
-      return;
-    }
-    this.propiedadService
-      .addPropiedad({id } as Propiedad)
-      .subscribe((propiedad) => {
-        this.propiedades.push(propiedad);
-      });
-  }*/
 
   delete(numero: string, calle: string, codpost: any): void {
     numero = numero.trim();

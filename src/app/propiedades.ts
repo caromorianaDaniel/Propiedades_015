@@ -28,7 +28,7 @@ export class Propiedad {
     this._propietario = propietario;
   }
 
-  get identificador() {
+  public get identificador() {
     return this._identificador;
   }
   get tipoObjeto() {
@@ -53,7 +53,7 @@ export class Propiedad {
     return this._propietario;
   }
 
-  get precio() {
+  precio() {
     let precio = this._metrosc * this._preciom;
     return precio;
   }

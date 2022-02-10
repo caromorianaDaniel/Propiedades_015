@@ -40,7 +40,6 @@ export class Comercio extends Propiedad {
     this._caducada = caducada;
     this._licencias = licencias = [{ licencia: licencia, caducada: caducada }];
   }
-  /*
   get antiguedad() {
     return this._antiguedad;
   }
@@ -49,5 +48,5 @@ export class Comercio extends Propiedad {
   }
   get licencias() {
     return this._licencias;
-  }*/
+  }
 }
