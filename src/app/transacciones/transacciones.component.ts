@@ -23,18 +23,6 @@ export class TransaccionesComponent implements OnInit {
       .subscribe((transacciones) => (this.transacciones = transacciones));
   }
 
-  add(_identificador: string): void {
-    _identificador = _identificador.trim();
-    if (!_identificador) {
-      return;
-    }
-    this.transaccionService
-      .addTransaccion({ _identificador } as Transaccion)
-      .subscribe((transaccion) => {
-        this.transacciones.push(transaccion);
-      });
-  }
-
   delete(transaccion: Transaccion): void {
     this.transacciones = this.transacciones.filter((h) => h !== transaccion);
     this.transaccionService.deleteTransaccion(transaccion).subscribe();

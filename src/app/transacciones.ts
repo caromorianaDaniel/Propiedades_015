@@ -1,6 +1,8 @@
 export class Transaccion {
-  public _tipoTrans: string;
   public _identificador: string;
+  public _tipoTrans: string;
+  public _comprador: string;
+  public _vendedor: string;
   public _fecha: Date;
   public _plazos: number;
   public _precio: number;

@@ -1,15 +1,4 @@
-<h2>Mis Propietarios</h2>
-
-<div>
-  <label
-    >Propietario identificador:
-    <input #propietarioId />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(propietarioId.value); propietarioId.value = ''">
-    add
-  </button>
-</div>
+<h2>Propietarios</h2>
 
 <ul class="propietarios">
   <li *ngFor="let propietario of propietarios">

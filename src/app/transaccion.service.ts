@@ -54,24 +54,6 @@ export class TransaccionService {
       );
   }
 
-  /* GET transacciones whose _identificador contains search term */
-  searchTransacciones(term: string): Observable<Transaccion[]> {
-    if (!term.trim()) {
-      // if not search term, return empty transaccion array.
-      return of([]);
-    }
-    return this.http
-      .get<Transaccion[]>(
-        `${this.transaccionesUrl}/buscar/?_identificador=${term}`
-      )
-      .pipe(
-        catchError(this.handleError<Transaccion[]>('searchTransacciones', []))
-      );
-  }
-
-  //////// Save methods //////////
-
-  /** POST: add a new transaccion to the server */
   addTransaccion(transaccion: Transaccion): Observable<Transaccion> {
     const url = `${this.transaccionesUrl}/crear`;
     return this.http
@@ -79,7 +61,6 @@ export class TransaccionService {
       .pipe(catchError(this.handleError<Transaccion>('addTransaccion')));
   }
 
-  /** DELETE: delete the transaccion from the server */
   deleteTransaccion(
     transaccion: Transaccion | string
   ): Observable<Transaccion> {

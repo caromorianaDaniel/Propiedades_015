@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Propiedad } from '../propiedades';
+import { Solar } from '../solares';
+import { Vivienda } from '../viviendas';
 import { PropiedadService } from '../propiedad.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { PropiedadService } from '../propiedad.service';
   styleUrls: ['./propd-detail.component.css'],
 })
 export class PropdDetailComponent implements OnInit {
-  @Input() propiedad: Propiedad;
+  @Input()
+  propiedad: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +31,7 @@ export class PropdDetailComponent implements OnInit {
     const codpost: number = Number(this.route.snapshot.paramMap.get('codpost'));
     this.propiedadService
       .getPropiedad(calle, numero, codpost)
-      .subscribe((propiedad) => (this.propiedad = propiedad));
+      .subscribe((propiedad: Solar) => (this.propiedad = propiedad));
   }
 
   goBack(): void {

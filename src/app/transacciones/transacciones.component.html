@@ -1,15 +1,4 @@
-<h2>Mis Transacciones</h2>
-
-<div>
-  <label
-    >Transaccion identificador:
-    <input #transaccionId />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(transaccionId.value); transaccionId.value = ''">
-    add
-  </button>
-</div>
+<h2>Transacciones</h2>
 
 <ul class="transacciones">
   <li *ngFor="let transaccion of transacciones">

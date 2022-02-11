@@ -18,6 +18,7 @@ export class CrearTransComponent implements OnInit {
   propietarios: Propietario[];
   transacciones: Transaccion[];
   ciudades: Ciudades[];
+  indice: string;
 
   constructor(
     private propiedadService: PropiedadService,
@@ -76,10 +77,12 @@ export class CrearTransComponent implements OnInit {
     }
     const Transaccion: any = {
       identificador: identificador,
+      tipoTrans: tipo,
+      comprador: DNIc,
+      vendedor: DNIv,
       fecha: fecha,
       plazos: plazos,
       precio: precio,
-      tipoTrans: tipo,
     };
     this.transaccionService
       .addTransaccion(Transaccion)

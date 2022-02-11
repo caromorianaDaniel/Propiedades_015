@@ -18,6 +18,7 @@ export class Vivienda extends Propiedad {
 
   constructor(
     identificador: string,
+    tipoObjeto: string,
     numero: string,
     calles: Array<string>,
     codpost: number,
@@ -36,6 +37,7 @@ export class Vivienda extends Propiedad {
   ) {
     super(
       identificador,
+      tipoObjeto,
       numero,
       calles,
       codpost,
