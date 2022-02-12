@@ -15,7 +15,6 @@ export class PropiedadesComponent implements OnInit {
 
   ngOnInit() {
     this.getPropiedades();
-    console.log(this.propiedades);
   }
 
   getPropiedades(): void {

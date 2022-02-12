@@ -9,9 +9,12 @@
         }}/{{ propiedad._codpost }}"
       >
         <span class="badge">{{ propiedad._identificador }}</span>
-        <span>Tipo:{{ propiedad._tipoObjeto }},</span>
+        <span>Tipo:{{ propiedad._tipo }},</span>
 
-        <span> {{ propiedad._propietario }}, </span>
+        <span *ngIf="propiedad._propietario != ''">
+          {{ propiedad._propietario }},
+        </span>
+        <span *ngIf="propiedad._propietario == ''">Sin propietario,</span>
         <span> Metros: {{ propiedad._metrosc }}</span>
         <span>, Precio: {{ propiedad.precio }} €</span>
       </a>

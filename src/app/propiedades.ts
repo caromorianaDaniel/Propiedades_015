@@ -1,6 +1,6 @@
 export class Propiedad {
   public _identificador: string;
-  public _tipoObjeto: string;
+  public _tipo: string;
   public _numero: string;
   public _calles: Array<string>;
   public _codpost: number;
@@ -10,7 +10,7 @@ export class Propiedad {
 
   constructor(
     identificador: string,
-    tipoObjeto: string,
+    tipo: string,
     numero: string,
     calles: Array<string>,
     codpost: number,
@@ -19,7 +19,7 @@ export class Propiedad {
     propietario: string
   ) {
     this._identificador = identificador;
-    this._tipoObjeto = tipoObjeto;
+    this._tipo = tipo;
     this._numero = numero;
     this._calles = calles;
     this._codpost = codpost;
@@ -31,8 +31,8 @@ export class Propiedad {
   public get identificador() {
     return this._identificador;
   }
-  get tipoObjeto() {
-    return this._tipoObjeto;
+  get tipo() {
+    return this._tipo;
   }
   get numero() {
     return this._numero;

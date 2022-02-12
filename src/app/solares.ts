@@ -8,7 +8,7 @@ export class Solar extends Propiedad {
 
   constructor(
     identificador: string,
-    tipoObjeto: string,
+    tipo: string,
     numero: string,
     calles: Array<string>,
     codpost: number,
@@ -22,7 +22,7 @@ export class Solar extends Propiedad {
   ) {
     super(
       identificador,
-      tipoObjeto,
+      tipo,
       numero,
       calles,
       codpost,

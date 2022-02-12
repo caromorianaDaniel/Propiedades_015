@@ -22,9 +22,10 @@ export class PropiedadService {
 
   getPropiedades(): Observable<Propiedad[]> {
     const url = `${this.propiedadesUrl}`;
-    return this.http
+    const propd = this.http
       .get<Propiedad[]>(url)
       .pipe(catchError(this.handleError<Propiedad[]>('getPropiedades', [])));
+    return propd;
   }
 
   getPropiedadNo404<Data>(identificador: string): Observable<Propiedad> {

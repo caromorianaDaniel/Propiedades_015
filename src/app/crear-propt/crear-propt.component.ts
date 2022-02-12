@@ -40,7 +40,8 @@ export class CrearProptComponent implements OnInit {
     (DNI = DNI.trim()),
       (nom = nom.trim()),
       (ape = ape.trim()),
-      (idpropd = idpropd.trim());
+      (idpropd = idpropd.trim()),
+      (nac = Date.parse(nac));
     if (!DNI || !nom || !ape || !nac || !idpropd) {
       return;
     }

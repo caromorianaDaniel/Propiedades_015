@@ -6,7 +6,6 @@ import { Solar } from '../solares';
 import { Propietario } from '../propietarios';
 import { PropiedadService } from '../propiedad.service';
 import { PropietarioService } from '../propietario.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-propiedades',
@@ -18,7 +17,6 @@ export class CrearPropiedadesComponent implements OnInit {
   propiedades: Propiedad[];
   ciudades: Ciudades[];
   propietarios: Propietario[];
-  propiedadForm: FormGroup;
 
   constructor(
     private propiedadService: PropiedadService,
@@ -75,7 +73,7 @@ export class CrearPropiedadesComponent implements OnInit {
     let calles = [calle1, calle2, calle3, calle4];
     if (
       !numero ||
-      !calles ||
+      !calle1 ||
       !codpost ||
       !preciom ||
       !metrosc ||
@@ -90,7 +88,7 @@ export class CrearPropiedadesComponent implements OnInit {
     let identificador = `C/ ${calle1}, Nº ${numero}, ${codpost}`;
     const Propiedad: any = {
       identificador: identificador,
-      tipoObjeto: 'Solar',
+      tipo: 'Solar',
       numero: numero,
       calles: calles,
       codpost: codpost,
@@ -167,7 +165,7 @@ export class CrearPropiedadesComponent implements OnInit {
     let cocina = [horno, micro, lavavajillas, frigorifico];
     const Propiedad: any = {
       identificador: identificador,
-      tipoObjeto: 'Vivienda',
+      tipo: 'Vivienda',
       numero: numero,
       calles: calles,
       codpost: codpost,

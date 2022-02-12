@@ -1,19 +1,94 @@
 <div>
   <h2>Detalles de {{ propiedad._identificador | uppercase }}</h2>
-  <div><span>Identificador: </span>{{ propiedad._identificador }}</div>
-  <div><span>Tipo de Propiedad: </span>{{ propiedad.tipoObjeto }}</div>
-  <div><span>Número: </span>{{ propiedad._numero }}</div>
-  <div *ngFor="let calles of propiedad.calles">
-    <label>Calles</label>
-    <br /><span>Primera Calle: </span>{{ calles[0] }}<br /><span
-      >Segunda Calle: </span
-    >{{ calles[1] }}<br /><span>Tercera Calle: </span>{{ calles[2] }}<br />
-    <span>Cuarta Calle: </span>{{ calles[3] }}
+  <div *ngIf="propiedad._tipo == 'Solar'">
+    <div><span>Identificador: </span>{{ propiedad._identificador }}</div>
+    <div><span>Tipo de Propiedad: </span>{{ propiedad._tipo }}</div>
+    <div><span>Número: </span>{{ propiedad._numero }}</div>
+    <div *ngFor="let calles of propiedad._calles">
+      <label>Calles</label>
+      <br />
+      <div *ngIf="calles[0] != undefined">
+        <span>Primera Calle: </span>{{ calles[0] }}
+      </div>
+      <div *ngIf="calles[1] != undefined">
+        <span>Segunda Calle: </span>{{ calles[1] }}
+      </div>
+      <div *ngIf="calles[2] != undefined">
+        <span>Tercera Calle: </span>{{ calles[2] }}
+      </div>
+      <div *ngIf="calles[3] != undefined">
+        <span>Cuarta Calle: </span>{{ calles[3] }}
+      </div>
+    </div>
+    <div><span>Codigo Postal: </span>{{ propiedad._codpost }}</div>
+    <div><span>Metros Cuadrados: </span>{{ propiedad._metrosc }}</div>
+    <div><span>Precio del Metro: </span>{{ propiedad._preciom }}</div>
+    <div><span>Propietario: </span>{{ propiedad._propietario }}</div>
+    <div>
+      <label>Edificable: </label
+      ><input type="checkbox" value="{{ propiedad._edificable }}" />{{
+        propiedad._edificable
+      }}
+    </div>
+    <div>
+      <label>Acceso a Agua: </label
+      ><input type="checkbox" value="{{ propiedad._agua }}" />{{
+        propiedad._agua
+      }}
+    </div>
+    <div>
+      <label>Acceso a Luz: </label
+      ><input type="checkbox" value="{{ propiedad._luz }}" />{{
+        propiedad._luz
+      }}
+    </div>
+    <div><label>Lejanía al centro : </label>{{ propiedad._lejania }} m</div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
   </div>
-  <div><span>Codigo Postal: </span>{{ propiedad._codpost }}</div>
-  <div><span>Metros Cuadrados: </span>{{ propiedad._metrosc }}</div>
-  <div><span>Precio del Metro: </span>{{ propiedad._preciom }}</div>
-  <div><span>Propietario: </span>{{ propiedad._propietario }}</div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <div *ngIf="propiedad._tipo == 'Vivienda'">
+    <div><span>Identificador: </span>{{ propiedad._identificador }}</div>
+    <div><span>Tipo de Propiedad: </span>{{ propiedad._tipo }}</div>
+    <div><span>Número: </span>{{ propiedad._numero }}</div>
+    <div *ngFor="let calles of propiedad._calles">
+      <label>Calles</label>
+      <br /><span>Primera Calle: </span>{{ calles[0] }}<br /><span
+        >Segunda Calle: </span
+      >{{ calles[1] }}<br /><span>Tercera Calle: </span>{{ calles[2] }}<br />
+      <span>Cuarta Calle: </span>{{ calles[3] }}
+    </div>
+    <div><span>Codigo Postal: </span>{{ propiedad._codpost }}</div>
+    <div><span>Metros Cuadrados: </span>{{ propiedad._metrosc }}</div>
+    <div><span>Precio del Metro: </span>{{ propiedad._preciom }}</div>
+    <div><span>Propietario: </span>{{ propiedad._propietario }}</div>
+    <div>
+      <div><label>Antiguedad:</label></div>
+      <div>{{ propiedad._antiguedad }}</div>
+    </div>
+    <div>
+      <label>Número de Habitaciones:</label>
+      {{ propiedad._numHab }}
+    </div>
+    <div>
+      <label>Número de Baños:</label>
+      {{ propiedad._numBa }}
+    </div>
+    <div>
+      <label>Garage:</label>
+      <input type="checkbox" value="{{ propiedad._garage }}" />
+    </div>
+    <div>
+      <p>Equipación de la Cocina:</p>
+      <label>Horno:</label>
+      <input type="checkbox" value="{{ propiedad._horno }}" />
+      <label>Microondas:</label>
+      <input type="checkbox" value="{{ propiedad._microondas }}" />
+      <label>Lavavajillas:</label>
+      <input type="checkbox" value="{{ propiedad._lavavajillas }}" />
+      <label>Frigorífico:</label>
+      <input type="checkbox" value="{{ propiedad._frigorifico }}" />
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
+  </div>
 </div>
