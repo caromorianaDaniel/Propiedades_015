@@ -31,8 +31,8 @@ export class PropdDetailComponent implements OnInit {
     const codpost: number = Number(this.route.snapshot.paramMap.get('codpost'));
     this.propiedadService
       .getPropiedad(calle, numero, codpost)
-      .subscribe((propiedad: any) => (this.propiedad = propiedad));
-    /*if (this.propiedad._tipo == 'Solar') {
+      .subscribe((propiedades) => (this.propiedad = propiedades));
+    if (this.propiedad._tipo == 'Solar') {
       const Propd: any = {
         identificador: this.propiedad._identificador,
         tipo: this.propiedad._tipo,
@@ -47,14 +47,28 @@ export class PropdDetailComponent implements OnInit {
         luz: this.propiedad._luz,
         lejania: this.propiedad._lejania,
       };
-    }*/
+    }
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  save(): void {
+  save_sol(edificable: any, luz: any, agua: any): void {
+    (edificable = Boolean(edificable)),
+      (luz = Boolean(luz)),
+      (agua = Boolean(agua));
+    const Prop: any = {
+      edificable: edificable,
+      luz: luz,
+      agua: agua,
+    };
+    this.propiedadService
+      .updatePropiedad(Prop)
+      .subscribe((propiedad: any) => (this.propiedad = propiedad));
+  }
+
+  save_viv(): void {
     this.propiedadService
       .updatePropiedad(this.propiedad)
       .subscribe(() => this.goBack());

@@ -33,10 +33,4 @@ export class ProptDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-  save(): void {
-    this.propietarioService
-      .updatePropietario(this.propietario)
-      .subscribe(() => this.goBack());
-  }
 }

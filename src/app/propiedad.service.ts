@@ -75,8 +75,9 @@ export class PropiedadService {
   }
 
   updatePropiedad(propiedad: Propiedad): Observable<any> {
+    const url = `${this.propiedadesUrl}/modificar/solar`;
     return this.http
-      .put(this.propiedadesUrl, propiedad, this.httpOptions)
+      .put(url, propiedad, this.httpOptions)
       .pipe(catchError(this.handleError<any>('updatePropiedad')));
   }
 

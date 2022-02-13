@@ -60,12 +60,6 @@ export class PropietarioService {
       .pipe(catchError(this.handleError<Propietario>('deletePropietario')));
   }
 
-  updatePropietario(propietario: Propietario): Observable<any> {
-    return this.http
-      .put(this.propietariosUrl, propietario, this.httpOptions)
-      .pipe(catchError(this.handleError<any>('updatePropietario')));
-  }
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.

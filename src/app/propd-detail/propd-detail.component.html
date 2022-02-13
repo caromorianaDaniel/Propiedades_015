@@ -26,25 +26,29 @@
     <div><span>Propietario: </span>{{ propiedad._propietario }}</div>
     <div>
       <label>Edificable: </label
-      ><input type="checkbox" value="{{ propiedad._edificable }}" />{{
-        propiedad._edificable
-      }}
+      ><input
+        #edificable
+        type="checkbox"
+        value="{{ propiedad._edificable }}"
+      />{{ propiedad._edificable }}
     </div>
     <div>
       <label>Acceso a Agua: </label
-      ><input type="checkbox" value="{{ propiedad._agua }}" />{{
+      ><input #agua type="checkbox" value="{{ propiedad._agua }}" />{{
         propiedad._agua
       }}
     </div>
     <div>
       <label>Acceso a Luz: </label
-      ><input type="checkbox" value="{{ propiedad._luz }}" />{{
+      ><input #luz type="checkbox" value="{{ propiedad._luz }}" />{{
         propiedad._luz
       }}
     </div>
     <div><label>Lejanía al centro : </label>{{ propiedad._lejania }} m</div>
     <button (click)="goBack()">go back</button>
-    <button (click)="save()">save</button>
+    <button (click)="save_sol(edificable.value, luz.value, agua.value)">
+      save
+    </button>
   </div>
   <div *ngIf="propiedad._tipo == 'Vivienda'">
     <div><span>Identificador: </span>{{ propiedad._identificador }}</div>
@@ -89,6 +93,6 @@
       <input type="checkbox" value="{{ propiedad._frigorifico }}" />
     </div>
     <button (click)="goBack()">go back</button>
-    <button (click)="save()">save</button>
+    <button (click)="save_viv()">save</button>
   </div>
 </div>

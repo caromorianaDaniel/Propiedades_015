@@ -75,13 +75,6 @@ export class TransaccionService {
       .pipe(catchError(this.handleError<Transaccion>('deleteTransaccion')));
   }
 
-  /** PUT: update the transaccion on the server */
-  updateTransaccion(transaccion: Transaccion): Observable<any> {
-    return this.http
-      .put(this.transaccionesUrl, transaccion, this.httpOptions)
-      .pipe(catchError(this.handleError<any>('updateTransaccion')));
-  }
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.
